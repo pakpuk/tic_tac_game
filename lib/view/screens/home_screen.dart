@@ -54,6 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
             textAlign: TextAlign.center,
           ),
+          Expanded(
+            child: GridView.count(crossAxisCount: 3,shrinkWrap: true,
+             padding:  const  EdgeInsets.all(16),
+              mainAxisSpacing: 0,
+              crossAxisSpacing: 0,  
+              childAspectRatio: 1.0,
+              children: List.generate(9,(index)=>),
+            ),
+          ),
+
           SizedBox(height: 8),
           ElevatedButton.icon(
             onPressed: () {},
