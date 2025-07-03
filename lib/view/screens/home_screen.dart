@@ -57,27 +57,53 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: GridView.count(
               padding: const EdgeInsets.all(16),
-              mainAxisSpacing: 0,
-              crossAxisSpacing: 0,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
               childAspectRatio: 1.0,
               crossAxisCount: 3,
               children: List.generate(
                   9,
                   (index) => InkWell(
-                        onTap: () {},
+                        borderRadius: BorderRadius.circular(16),
+                        onTap: isGameOver
+                            ? null
+                            : () {
+                                _onTap(index);
+                              },
                         child: Container(
                           decoration: BoxDecoration(
                             color: ColorManager.shadowColor,
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          child: Text("data"),
+                          child: Center(
+                              child: Text(
+                            Player.playerX.contains(index)
+                                ? "X"
+                                : Player.palyerO.contains(index)
+                                    ? "O"
+                                    : Player.empty,
+                            style: TextStyle(
+                                fontSize: 42,
+                                color: Player.playerX.contains(index)
+                                    ? ColorManager.bluecolor
+                                    : ColorManager.redColor),
+                          )),
                         ),
                       )),
             ),
           ),
           SizedBox(height: 8),
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              setState(() {
+                Player.playerX.clear();
+                Player.palyerO.clear();
+                activateplayer = "X";
+                turn = 0;
+                result = "";
+                isGameOver = false;
+              });
+            },
             icon: Icon(
               Icons.replay,
               color: ColorManager.whiteColor,
@@ -94,5 +120,21 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       )),
     );
+  }
+
+  void _onTap(int index) {
+    game.playGame(index, activateplayer);
+    _upadateState();
+  }
+
+  void _upadateState() {
+    return setState(() {
+      turn++;
+      if (activateplayer == Player.x) {
+        activateplayer = Player.o;
+      } else {
+        activateplayer = Player.x;
+      }
+    });
   }
 }
