@@ -142,6 +142,14 @@ class _HomeScreenState extends State<HomeScreen> {
       } else {
         activateplayer = Player.x;
       }
+      String winner = game.checkWinner();
+      if (winner.isNotEmpty) {
+        result = "Winner is $winner";
+        isGameOver = true;
+      } else {
+        result = "It's a Draw";
+        isGameOver = true;
+      }
     });
   }
 }
