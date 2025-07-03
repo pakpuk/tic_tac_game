@@ -136,12 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _upadateState() {
     return setState(() {
-      turn++;
       if (activateplayer == Player.x) {
         activateplayer = Player.o;
       } else {
         activateplayer = Player.x;
       }
+      turn++;
       String winner = game.checkWinner();
       if (winner.isNotEmpty) {
         result = "Winner is $winner";
