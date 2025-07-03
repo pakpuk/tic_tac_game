@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Text(
                             Player.playerX.contains(index)
                                 ? "X"
-                                : Player.palyerO.contains(index)
+                                : Player.playerO.contains(index)
                                     ? "O"
                                     : Player.empty,
                             style: TextStyle(
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               setState(() {
                 Player.playerX.clear();
-                Player.palyerO.clear();
+                Player.playerO.clear();
                 activateplayer = "X";
                 turn = 0;
                 result = "";
@@ -122,9 +122,16 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _onTap(int index) {
-    game.playGame(index, activateplayer);
-    _upadateState();
+  void _onTap(int index) async {
+    if (!Player.playerX.contains(index) && Player.playerX.isEmpty ||
+        !Player.playerO.contains(index) && Player.playerO.isEmpty) {
+      game.playGame(index, activateplayer);
+      _upadateState();
+    }
+    if (!isSwitched && !isGameOver) {
+      await game.autoplay(activateplayer);
+      _upadateState();
+    }
   }
 
   void _upadateState() {
