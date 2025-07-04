@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
       game.playGame(index, activateplayer);
       _upadateState();
     }
-    if (!isSwitched && !isGameOver) {
+    if (!isSwitched && !isGameOver && turn != 9) {
       await game.autoplay(activateplayer);
       _upadateState();
     }
