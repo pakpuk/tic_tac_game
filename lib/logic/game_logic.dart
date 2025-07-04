@@ -40,6 +40,107 @@ class Game {
         .where(
             (i) => !Player.playerX.contains(i) && !Player.playerO.contains(i))
         .toList();
+    if (Player.playerX.containsAll(0, 1) && availableMoves.contains(2)) {
+      index = 2;
+    } else if (Player.playerX.containsAll(1, 2) && availableMoves.contains(0)) {
+      index = 0;
+    } else if (Player.playerX.containsAll(0, 2) && availableMoves.contains(1)) {
+      index = 1;
+    } else if (Player.playerX.containsAll(3, 4) && availableMoves.contains(5)) {
+      index = 5;
+    } else if (Player.playerX.containsAll(4, 5) && availableMoves.contains(3)) {
+      index = 3;
+    } else if (Player.playerX.containsAll(3, 5) && availableMoves.contains(4)) {
+      index = 4;
+    } else if (Player.playerX.containsAll(6, 7) && availableMoves.contains(8)) {
+      index = 8;
+    } else if (Player.playerX.containsAll(7, 8) && availableMoves.contains(6)) {
+      index = 6;
+    } else if (Player.playerX.containsAll(6, 8) && availableMoves.contains(7)) {
+      index = 7;
+    } else if (Player.playerX.containsAll(0, 3) && availableMoves.contains(6)) {
+      index = 6;
+    } else if (Player.playerX.containsAll(3, 6) && availableMoves.contains(0)) {
+      index = 0;
+    } else if (Player.playerX.containsAll(0, 6) && availableMoves.contains(3)) {
+      index = 3;
+    } else if (Player.playerX.containsAll(1, 4) && availableMoves.contains(7)) {
+      index = 7;
+    } else if (Player.playerX.containsAll(4, 7) && availableMoves.contains(1)) {
+      index = 1;
+    } else if (Player.playerX.containsAll(1, 7) && availableMoves.contains(4)) {
+      index = 4;
+    } else if (Player.playerX.containsAll(2, 5) && availableMoves.contains(8)) {
+      index = 8;
+    } else if (Player.playerX.containsAll(5, 8) && availableMoves.contains(2)) {
+      index = 2;
+    } else if (Player.playerX.containsAll(2, 8) && availableMoves.contains(5)) {
+      index = 5;
+    } else if (Player.playerX.containsAll(0, 4) && availableMoves.contains(8)) {
+      index = 8;
+    } else if (Player.playerX.containsAll(4, 8) && availableMoves.contains(0)) {
+      index = 0;
+    } else if (Player.playerX.containsAll(0, 8) && availableMoves.contains(4)) {
+      index = 4;
+    } else if (Player.playerX.containsAll(2, 4) && availableMoves.contains(6)) {
+      index = 6;
+    } else if (Player.playerX.containsAll(4, 6) && availableMoves.contains(2)) {
+      index = 2;
+    } else if (Player.playerX.containsAll(2, 6) && availableMoves.contains(4)) {
+      index = 4;
+    } else if (Player.playerO.containsAll(0, 1) && availableMoves.contains(2)) {
+      index = 2;
+    } else if (Player.playerO.containsAll(1, 2) && availableMoves.contains(0)) {
+      index = 0;
+    } else if (Player.playerO.containsAll(0, 2) && availableMoves.contains(1)) {
+      index = 1;
+    } else if (Player.playerO.containsAll(3, 4) && availableMoves.contains(5)) {
+      index = 5;
+    } else if (Player.playerO.containsAll(4, 5) && availableMoves.contains(3)) {
+      index = 3;
+    } else if (Player.playerO.containsAll(3, 5) && availableMoves.contains(4)) {
+      index = 4;
+    } else if (Player.playerO.containsAll(6, 7) && availableMoves.contains(8)) {
+      index = 8;
+    } else if (Player.playerO.containsAll(7, 8) && availableMoves.contains(6)) {
+      index = 6;
+    } else if (Player.playerO.containsAll(6, 8) && availableMoves.contains(7)) {
+      index = 7;
+    } else if (Player.playerO.containsAll(0, 3) && availableMoves.contains(6)) {
+      index = 6;
+    } else if (Player.playerO.containsAll(3, 6) && availableMoves.contains(0)) {
+      index = 0;
+    } else if (Player.playerO.containsAll(0, 6) && availableMoves.contains(3)) {
+      index = 3;
+    } else if (Player.playerO.containsAll(1, 4) && availableMoves.contains(7)) {
+      index = 7;
+    } else if (Player.playerO.containsAll(4, 7) && availableMoves.contains(1)) {
+      index = 1;
+    } else if (Player.playerO.containsAll(1, 7) && availableMoves.contains(4)) {
+      index = 4;
+    } else if (Player.playerO.containsAll(2, 5) && availableMoves.contains(8)) {
+      index = 8;
+    } else if (Player.playerO.containsAll(5, 8) && availableMoves.contains(2)) {
+      index = 2;
+    } else if (Player.playerO.containsAll(2, 8) && availableMoves.contains(5)) {
+      index = 5;
+    } else if (Player.playerO.containsAll(0, 4) && availableMoves.contains(8)) {
+      index = 8;
+    } else if (Player.playerO.containsAll(4, 8) && availableMoves.contains(0)) {
+      index = 0;
+    } else if (Player.playerO.containsAll(0, 8) && availableMoves.contains(4)) {
+      index = 4;
+    } else if (Player.playerO.containsAll(2, 4) && availableMoves.contains(6)) {
+      index = 6;
+    } else if (Player.playerO.containsAll(4, 6) && availableMoves.contains(2)) {
+      index = 2;
+    } else if (Player.playerO.containsAll(2, 6) && availableMoves.contains(4)) {
+      index = 4;
+    } else {
+      Random random = Random();
+      int randomIndex = random.nextInt(availableMoves.length);
+      index = availableMoves[randomIndex];
+    }
     Random random = Random();
     int randomIndex = random.nextInt(availableMoves.length);
     index = availableMoves[randomIndex];
