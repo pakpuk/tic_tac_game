@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tictac_game/logic/game_logic.dart';
 import 'package:tictac_game/theme/color_manager.dart';
 import 'package:tictac_game/theme/text_mnager.dart';
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   isSwitched = newvalue;
                 });
               }),
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           Text(
             "Current Player: $activateplayer".toUpperCase(),
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           Text(
             result,
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       )),
             ),
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 8.h),
           ElevatedButton.icon(
             onPressed: () {
               setState(() {
